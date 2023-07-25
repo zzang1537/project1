@@ -149,7 +149,7 @@ body.fixed {
 .main_visual.active .main_txt {
 	opacity: 1;
 	top: 50%;
-	transition: top 0.8s, opacity 1.5s;
+	transition: top 0.8s, opacity 1.2s;
 	transition-timing-function: ease-in-out;
 }
 .main_visual .main_txt p {
