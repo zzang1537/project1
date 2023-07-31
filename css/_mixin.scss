@@ -1,0 +1,12 @@
+@mixin transitionX($x, $s, $opa){
+	opacity: 0;
+	transform: translateX($x);
+	transition: transform $s, opacity $opa;
+	transition-timing-function: ease-in-out;
+}
+@mixin transitionY($y, $s, $opa){
+	opacity: 0;
+	transform: translateY($y);
+	transition: transform $s, opacity $opa;
+	transition-timing-function: ease-in-out;	
+}

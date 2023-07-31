@@ -1,0 +1,163 @@
+#contents3 {
+	padding: 130px 0 180px 0;
+	text-align: center;
+
+	.inner {
+		@extend %inner;
+	}
+	.title {
+		@extend %title;
+
+		h3 {
+			@extend %h3;
+		}
+		span {
+			@extend %span;
+		}
+	}
+
+	.content {
+		position: relative;
+		margin-top: 60px;
+
+		&::after {
+			position: absolute;
+			z-index: -1;
+			content: "";
+			left: 50%;
+			top: 0;
+			width: 3px;
+			height: 100%;
+			background-color: #f1f1f1;
+		}
+		li {
+			position: relative;
+			padding-bottom: 90px;
+			opacity: 0;
+			transition: transform 1.2s, opacity 1.5s;
+			transition-timing-function: ease-in-out;
+
+			&:nth-child(2n+1) {
+				transform: translateX(-200px);
+			}
+			&:nth-child(2n) {
+				transform: translateX(200px);
+			}
+			&:last-child {
+				padding-bottom: 0px;
+			}
+			.circle_img img {
+				width: 180px;
+				padding: 5px;
+				border-radius: 50%;
+				background-color: #f1f1f1;
+			}
+			.txt {
+				position: absolute;
+				padding: 20px 0 20px 10px;
+				top: 0;
+
+				p {
+					font-weight: bold;
+					line-height: 1.5;
+				}
+				span {
+					@extend %subText;
+					padding-top: 15px;
+					line-height: 1.5;
+					color: $text-color;
+				}
+			}
+			&:nth-child(2n) .txt {
+				text-align: left;
+				right: 20px;
+			}
+			&:nth-child(2n+1) .txt {
+				text-align: right;
+				left: 20px;
+			}
+		}
+	}
+	&.active .content li {
+		opacity: 1;
+		transform: translateX(0);
+	}
+}
+
+@media screen and (max-width: 940px) {
+	#contents3 {
+		padding: 130px 45px 180px 45px;
+		text-align: left;
+		
+		.content {
+			&::after {
+				left: 100px;
+			}
+			li {
+				.txt {
+					position: absolute;
+					top: 30px;
+				}
+				&:nth-child(2n) .txt {
+					text-align: left;
+					right: auto;
+					left: 200px;
+				}
+				&:nth-child(2n+1) .txt {
+					text-align: left;
+					left: 200px;
+				}
+				.txt span br {
+					display: none;
+				}
+			}
+		}
+	}
+}
+@media screen and (max-width: 720px) {
+	#contents3 {
+		font-size: 15px;
+	}
+}
+@media screen and (max-width: 560px) {
+	#contents3 .inner .title span br {
+		display: none;
+	}	
+}
+@media screen and (max-width: 460px) {
+	#contents3 {
+		font-size: 14px;
+		padding: 100px 30px 150px 30px;
+
+		.content{
+			&::after {
+				left: 22%;
+			}
+			li {
+				.circle_img {
+					width: calc((100% - 60px)/2);
+					min-width: 100px;
+					img {
+						padding: 5px;
+						border-radius: 50%;
+						background-color: #f1f1f1;
+					}
+				}
+				.txt {
+					top: 17%;
+
+					span {
+						display: none;
+					}
+				}
+				&:nth-child(2n) .txt {
+					left: 45%;
+				}
+				&:nth-child(2n+1) .txt {
+					left: 45%;
+				}
+			}
+		}
+	}
+
+}
